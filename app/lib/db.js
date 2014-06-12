@@ -5,7 +5,7 @@
 var config =  require('./config')
 var mysql = require('mysql');
 
-var connection = mysql.createConnection(config.dev_db);
+var connection = mysql.createConnection(config.db);
 
 connection.connect()
 
