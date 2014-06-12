@@ -1,8 +1,8 @@
 //Unit tests for individual database functions.
 //Currently only placeholders for BDD
 
-var mocha = require('mocha')
-var db = require('../lib/db')
+var assert = require('assert')
+var db = require('../app/lib/db')
 
 // describe('db.findOnePlayer', function (){
 // 	it('returns one player and their current state', function (){
@@ -11,7 +11,16 @@ var db = require('../lib/db')
 // })
 
 describe('db.findAllPlayers', function (){
-	it('returns all players and their current states', function (){
-		db.findAllPlayers();
+	it('returns and array object of players', function (done){
+		db.findAllPlayers(function (data){
+			assert(typeof(data) === 'object')
+		});
+		done()
+	}),
+	it('should have more than 0', function (done){
+		db.findAllPlayers(function (data){
+			assert(data.length > 0)
+		})
+		done()
 	})
 })
