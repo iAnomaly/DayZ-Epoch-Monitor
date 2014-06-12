@@ -16,3 +16,11 @@ exports.findAllPlayers = function (callback){
 		callback(rows);
 	});
 };
+
+exports.findPlayerByName = function (player, callback){
+	var query = "SELECT * FROM (Player_DATA INNER JOIN Character_DATA ON Character_DATA.PlayerUID = Player_DATA.PlayerUID) WHERE Player_DATA.PlayerName = '" + player + "'";
+	connection.query(query, function (err, rows, fields){
+		if (err) throw err;
+		callback(rows)
+	})
+}

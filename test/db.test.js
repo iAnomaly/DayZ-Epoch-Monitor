@@ -4,12 +4,6 @@
 var assert = require('assert')
 var db = require('../app/lib/db')
 
-// describe('db.findOnePlayer', function (){
-// 	it('returns one player and their current state', function (){
-// 		//test goes here
-// 	})
-// })
-
 describe('db.findAllPlayers', function (){
 	it('returns and array object of players', function (done){
 		db.findAllPlayers(function (data){
@@ -24,3 +18,13 @@ describe('db.findAllPlayers', function (){
 		done()
 	})
 })
+
+//This test passes even though it should not pass. Needs to be fixed.
+describe('db.findPlayerByName', function (){
+	it('returns a player named Friache', function (done){
+		db.findPlayerByName('Friache', function (data){
+			assert(data.length === 0)
+		});
+		done()		
+	});
+});
