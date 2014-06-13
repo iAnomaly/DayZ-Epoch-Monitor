@@ -2,12 +2,12 @@
 //the pre-existing Dayz Epoch Mysql Database
 
 
-var config =  require('./config')
+var config =  require('./config');
 var mysql = require('mysql');
 
 var connection = mysql.createConnection(config.db);
 
-connection.connect()
+connection.connect();
 
 //Returns all alive players
 //Usage: db.findAllPlayers(function (players) {...})
@@ -30,11 +30,11 @@ exports.findPlayerByName = function (player, callback){
 				 WHERE Character_DATA.Alive = 1 \
 				 AND Player_DATA.PlayerName = ';
 
-	var query = sql.concat('"' + player + '"')
+	var query = sql.concat('"' + player + '"');
 
 	connection.query(query, function (err, rows, fields){
 		if (err) throw err;
-		var player = rows[0]
-		callback(player)
-	})
-}
+		var player = rows[0];
+		callback(player);
+	});
+};
