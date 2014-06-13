@@ -19,7 +19,15 @@
 			"file": "app/client/index.html",
 			"settings":
 			{
-				"buffer_size": 2226,
+				"buffer_size": 2648,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/client/js/dayz-epoch-monitor.js",
+			"settings":
+			{
+				"buffer_size": 1707,
 				"line_ending": "Windows"
 			}
 		}
@@ -27,9 +35,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 242.0,
 		"selected_items":
 		[
+			[
+				"FTP",
+				"SFTP: Browse Server…"
+			],
 			[
 				"JS",
 				"Set Syntax: JavaScript"
@@ -259,7 +271,7 @@
 				"Snippet: Lorem ipsum"
 			]
 		],
-		"width": 416.0
+		"width": 512.0
 	},
 	"console":
 	{
@@ -422,6 +434,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"ang",
+			"id",
 			"CSQ18",
 			"014CS",
 			"security",
@@ -547,9 +561,7 @@
 			"CSH37",
 			"Katherine Demo",
 			"Dana Demo",
-			"Customer-739",
-			"Healthcare Inspirations",
-			"831"
+			"Customer-739"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -579,7 +591,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -587,26 +599,59 @@
 					"file": "app/client/index.html",
 					"settings":
 					{
-						"buffer_size": 2226,
+						"buffer_size": 2648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1760,
-								1760
+								2648,
+								2648
 							]
 						],
 						"settings":
 						{
 							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 239.0,
+						"translation.y": 303.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/client/js/dayz-epoch-monitor.js",
+					"settings":
+					{
+						"buffer_size": 1707,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								230,
+								230
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
