@@ -8,4 +8,4 @@ var playerPoll = setInterval(function (){
 	db.findAllPlayers(function (data){
 		//console.log(data)
 	})
-}, config.poll_time)
+}, 5000)

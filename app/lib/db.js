@@ -27,8 +27,8 @@ exports.findPlayerByName = function (player, callback){
 	var sql = 'SELECT * FROM \
 				(Player_DATA INNER JOIN Character_DATA ON \
 				Character_DATA.PlayerUID = Player_DATA.PlayerUID) \
-				 WHERE Character_DATA.Alive = 1 \
-				 AND Player_DATA.PlayerName = ';
+				WHERE Character_DATA.Alive = 1 \
+				AND Player_DATA.PlayerName = ';
 
 	var query = sql.concat('"' + player + '"');
 
