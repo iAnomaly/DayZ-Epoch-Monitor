@@ -9,6 +9,8 @@ var connection = mysql.createConnection(config.db);
 
 connection.connect()
 
+//Returns all alive players
+//Usage: db.findAllPlayers(function (players) {...})
 exports.findAllPlayers = function (callback){
 	var query = 'SELECT * FROM \
 				(Player_DATA INNER JOIN Character_DATA ON \
@@ -19,8 +21,16 @@ exports.findAllPlayers = function (callback){
 	});
 };
 
+//Returns a single alive player found by name
+//Usage: db.findPlayerByName('Friache', function (player) {...})
 exports.findPlayerByName = function (player, callback){
-	var query = "SELECT * FROM (Player_DATA INNER JOIN Character_DATA ON Character_DATA.PlayerUID = Player_DATA.PlayerUID) WHERE Player_DATA.PlayerName = '" + player + "'";
+	var sql = 'SELECT * FROM \
+				(Player_DATA INNER JOIN Character_DATA ON Character_DATA.PlayerUID = Player_DATA.PlayerUID) \
+				 WHERE Character_DATA.Alive = 1 \
+				 AND Player_DATA.PlayerName = ';
+
+	var query = sql.concat('"' + player + '"')
+
 	connection.query(query, function (err, rows, fields){
 		if (err) throw err;
 		var player = rows[0]
