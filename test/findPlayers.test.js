@@ -8,14 +8,14 @@ describe('db.findAllPlayers', function (){
 	it('returns and array object of players', function (done){
 		db.findAllPlayers(function (data){
 			assert(typeof(data) === 'object');
+			done();
 		});
-		done();
 	}),
 	it('should have more than 0', function (done){
 		db.findAllPlayers(function (data){
-			assert(data.length > 0);
+			assert(data.length > 0)
+			done();
 		})
-		done()
 	})
 })
 
