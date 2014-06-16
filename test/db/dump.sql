@@ -1,0 +1,1 @@
+mysqldump -u dayz -pM0n!caL3w!nsky  -d dayz_epoch > epoch_data.sql
