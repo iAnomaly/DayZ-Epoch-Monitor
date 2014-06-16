@@ -1,7 +1,0 @@
-//Configuration objects that can be called into various functions
-
-exports.db = {
-  host     : 'localhost',
-  user     : 'root',
-  database : 'dayz_epoch'
-}
