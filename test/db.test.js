@@ -6,13 +6,13 @@ var db = require('../lib/db')
 
 describe('db.findAllPlayers', function (){
 	it('returns and array object of players', function (done){
-		db.findAllPlayers(function (data){
+		db.getAllPlayers(function (data){
 			assert(typeof(data) === 'object');
 			done();
 		});
 	}),
 	it('should have more than 0', function (done){
-		db.findAllPlayers(function (data){
+		db.getAllPlayers(function (data){
 			assert(data.length > 0)
 			done();
 		})
@@ -21,14 +21,14 @@ describe('db.findAllPlayers', function (){
 
 describe('db.findPlayerByName', function (){
 	it('returns a player named Friache', function (done){
-		db.findPlayerByName('Friache', function (data){
+		db.getPlayerByName('Friache', function (data){
 			assert(data.PlayerName === 'Friache');
 		done();	
 		});
 			
 	}),
 	it('returns an object', function (done){
-		db.findPlayerByName('Friache', function (data){
+		db.getPlayerByName('Friache', function (data){
 			assert(typeof data === 'object')
 		done();
 		})
