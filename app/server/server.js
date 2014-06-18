@@ -1,7 +1,7 @@
 var express = require('express'),
     app = express(),
-    server = require('http').createServer(app);
-    db = require('../../lib/db')
+    server = require('http').createServer(app),
+    db = require('../../lib/db');
 
 //Export for integration testing
 exports.app = app;

@@ -1,8 +1,8 @@
 //Unit tests for individual database functions.
 //Currently only placeholders for BDD
 
-var assert = require('assert')
-var db = require('../lib/db')
+var assert = require('assert');
+var db = require('../lib/db');
 
 describe('db.findAllPlayers', function (){
 	it('returns and array object of players', function (done){
