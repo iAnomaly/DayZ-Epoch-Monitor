@@ -1,4 +1,4 @@
-App.controller('ActiveTabCtrl', function ($scope, $location){
+App.controller('ActiveCtrl', function ($scope, $location){
 	$scope.isActive = function (route){
 		return $location.absUrl().indexOf(route) !== -1
 	}
@@ -12,7 +12,7 @@ App.controller('PlayerCtrl', function ($scope, Players){
 })
 
 App.controller('DashboardCtrl', function ($scope) {
-	console.log("Dashboard");
+	
 });
 
 App.controller('MapCtrl', function($scope) {

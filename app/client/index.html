@@ -32,10 +32,10 @@
           <a class="navbar-brand">DayZ Epoch Monitor</a>
         </div>
         <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#map">Map</a></li>
-            <li><a href="#players">Players</a></li>
+          <ul class="nav navbar-nav" ng-controller="ActiveCtrl">
+            <li ng-class="{active: isActive('/dashboard')}"><a href="#">Home</a></li>
+            <li ng-class="{active: isActive('/map')}"><a href="#map">Map</a></li>
+            <li ng-class="{active: isActive('/players')}"><a href="#players">Players</a></li>
             <li><a href="http://github.com/iAnomaly/DayZ-Epoch-Monitor" target="_new">About</a></li> 
           </ul>
         </div><!--/.nav-collapse -->

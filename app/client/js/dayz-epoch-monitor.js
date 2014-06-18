@@ -4,6 +4,9 @@ var App = angular.module('dayz-epoch-monitor', ['ngRoute'])
 App.config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
         .when('/', {
+            redirectTo: '/dashboard'
+        })
+        .when('/dashboard', {
             controller: 'DashboardCtrl',
             templateUrl: 'partials/dashboard.html'
         })
