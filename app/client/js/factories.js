@@ -1,3 +1,7 @@
+//----- Angular services for api requests and misc functions -----//
+
+
+//AJAX calls to the server that return JSON data
 App.factory('Players', function ($http){
 	return {
 		allPlayers: function (callback) {
