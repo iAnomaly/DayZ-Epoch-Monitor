@@ -16,7 +16,15 @@ App.factory('Players', function ($http){
 App.factory('Items', function (){
 	return {
 		buildInventory: function (player, callback){
-			callback(player.Inventory)
+			var inventory = player.Inventory;
+
+			var on_toolbelt = JSON.parse(inventory)[0];
+			var on_person = JSON.parse(inventory)[1];
+			var in_backpack = JSON.parse(player.Backpack);
+
+			var obj = { player: on_person, toolbelt: on_toolbelt, backpack: in_backpack }
+			callback(obj);
+			
 		}
 	}
-})
+});

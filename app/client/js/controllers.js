@@ -21,10 +21,23 @@ App.controller('PlayersCtrl', function ($scope, Players, $location){
 App.controller('ShowPlayerCtrl', function ($scope, Players, Items, $location){
 	var player = $location.path().split("/")[2]
 
-	Players.playerByName(player, function (data){
-		$scope.player = data;
+	$scope.active = 'player'
+	$scope.isActive = function (tab){
+		return $scope.active === tab;
+		console.log(tab, $scope.active)
+	}
+
+	Players.playerByName(player, function (player){
+		$scope.player = player;
+		Items.buildInventory(player, function (inventory){
+			$scope.on_player = inventory.player;
+			$scope.on_toolbelt = inventory.toolbelt;
+			$scope.backpack = inventory.backpack;
+		})
 	})
-})
+
+});
+
 
 App.controller('DashboardCtrl', function ($scope) {
 	
