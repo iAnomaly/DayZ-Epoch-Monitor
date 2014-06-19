@@ -16,8 +16,12 @@ App.config(function ($routeProvider, $locationProvider, $httpProvider) {
 
         })
         .when('/players', {
-            controller: 'PlayerCtrl',
+            controller: 'PlayersCtrl',
             templateUrl: 'partials/players.html'
+        })
+        .when('/players/:PlayerName', {
+            controller: 'ShowPlayerCtrl',
+            templateUrl: 'partials/show_player.html'
         })
         .otherwise({
             redirectTo: '/'

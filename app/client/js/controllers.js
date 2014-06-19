@@ -8,9 +8,19 @@ App.controller('ActiveCtrl', function ($scope, $location){
 })
 
 //Populates the players table with data from the Players factory (/factories.js)
-App.controller('PlayerCtrl', function ($scope, Players){
+App.controller('PlayersCtrl', function ($scope, Players, $location){
 	Players.allPlayers(function (data){
 		$scope.players = data;
+	})
+
+	$scope.showPlayer = function (player){
+		$location.path('/players/' + player.PlayerName)
+	}
+})
+
+App.controller('ShowPlayerCtrl', function ($scope, Players, $location){
+	Players.playerByName('Friache', function (data){
+		$scope.player = data;
 	})
 })
 

@@ -8,7 +8,15 @@ App.factory('Players', function ($http){
 			$http.get('/api/players').success(callback);
 		},
 		playerByName: function (player, callback) {
-			$http.get('/api/' + player).success(callback);
+			$http.get('/api/players/' + player).success(callback);
 		}	
 	}
 });
+
+App.factory('Items', function (){
+	return {
+		buildInventory: function (player, callback){
+			callback(player.Inventory)
+		}
+	}
+})
