@@ -18,8 +18,10 @@ App.controller('PlayersCtrl', function ($scope, Players, $location){
 	}
 })
 
-App.controller('ShowPlayerCtrl', function ($scope, Players, $location){
-	Players.playerByName('Friache', function (data){
+App.controller('ShowPlayerCtrl', function ($scope, Players, Items, $location){
+	var player = $location.path().split("/")[2]
+
+	Players.playerByName(player, function (data){
 		$scope.player = data;
 	})
 })
