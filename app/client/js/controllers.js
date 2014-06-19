@@ -39,7 +39,11 @@ App.controller('ShowPlayerCtrl', function ($scope, Players, Items, $location){
 });
 
 
-App.controller('DashboardCtrl', function ($scope) {
+App.controller('DashboardCtrl', function ($scope, Players) {
+
+	Players.allPlayers(function (data){
+		$scope.players = data;
+	})
 	
 });
 

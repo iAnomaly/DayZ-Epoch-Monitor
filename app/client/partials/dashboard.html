@@ -1,3 +1,17 @@
 <div ng-controller="DashboardCtrl">
-	Dashboard
+	<h2>Leader Board</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Player Name</th>
+				<th>Zombie Kills</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="player in players | orderBy:'KillsZ':true ">
+				<td>{{player.PlayerName}}</td>
+				<td>{{player.KillsZ}}</td>
+			</tr>
+		</tbody>	
+	</table>
 </div>
