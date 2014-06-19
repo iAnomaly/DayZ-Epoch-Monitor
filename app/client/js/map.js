@@ -5,7 +5,6 @@ App.directive('map', function() {
         replace: true,
         template: '<div></div>',
         link: function(scope, element, attrs) {
-            console.log(element);
             
             var myOptions = {
                 zoom: 6,
