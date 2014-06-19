@@ -1,5 +1,4 @@
 //Unit tests for individual database functions.
-//Currently only placeholders for BDD
 
 var assert = require('assert');
 var client_obj = require('../lib/db');
