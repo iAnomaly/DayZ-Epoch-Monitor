@@ -1,0 +1,14 @@
+<table ng-controller="PlayersCtrl" class="table">
+	<thead>
+		<tr>
+			<th>Player Name</th>
+			<th>Location</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="player in players">
+			<td><a ng-click="showPlayer(player)" style="cursor: pointer;">{{player.PlayerName}}</a></td>
+			<td>{{player.Worldspace}}</td>
+		</tr>
+	</tbody>
+</table>
