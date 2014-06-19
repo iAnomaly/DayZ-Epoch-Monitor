@@ -26,6 +26,8 @@ App.config(function ($routeProvider, $locationProvider, $httpProvider) {
         .otherwise({
             redirectTo: '/'
         });
+        
+    $locationProvider.html5Mode(true);
 })
 
 // .controller('MapCtrl', function($scope) {
