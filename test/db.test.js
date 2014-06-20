@@ -1,8 +1,14 @@
 //Unit tests for individual database functions.
-//Currently only placeholders for BDD
 
-var assert = require('assert')
-var db = require('../lib/db')
+var assert = require('assert');
+var client_obj = require('../lib/db');
+
+var dbconfig = require('../app/server/database.config').db;
+
+// Epoch Database
+var db = new client_obj();
+db.createConnection(dbconfig);
+db.connect();
 
 describe('db.findAllPlayers', function (){
 	it('returns and array object of players', function (done){
