@@ -18,7 +18,7 @@ App.controller('PlayersCtrl', function ($scope, Players, $location){
 	}
 })
 
-App.controller('ShowPlayerCtrl', function ($scope, Players, Items, $location){
+App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 	var player = $location.path().split("/")[2]
 
 	$scope.active = 'player'
@@ -50,5 +50,3 @@ App.controller('DashboardCtrl', function ($scope, Players) {
 App.controller('MapCtrl', function($scope) {
 
 });
-
-

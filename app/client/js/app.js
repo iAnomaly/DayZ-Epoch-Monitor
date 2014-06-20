@@ -20,8 +20,8 @@ App.config(function ($routeProvider, $locationProvider, $httpProvider) {
             templateUrl: 'partials/players.html'
         })
         .when('/players/:PlayerName', {
-            controller: 'ShowPlayerCtrl',
-            templateUrl: 'partials/show_player.html'
+            controller: 'PlayerCtrl',
+            templateUrl: 'partials/player.html'
         })
         .otherwise({
             redirectTo: '/'

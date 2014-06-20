@@ -9,7 +9,7 @@ App.factory('Players', function ($http){
 		},
 		playerByName: function (player, callback) {
 			$http.get('/api/players/' + player).success(callback);
-		}	
+		}
 	}
 });
 
