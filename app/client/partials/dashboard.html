@@ -5,12 +5,18 @@
 			<tr>
 				<th>Player Name</th>
 				<th>Zombie Kills</th>
+				<th>Bandit Kills</th>
+				<th>Humanity</th>
+				<th>Distance on Foot</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr ng-repeat="player in players | orderBy:'KillsZ':true ">
 				<td>{{player.PlayerName}}</td>
 				<td>{{player.KillsZ}}</td>
+				<td>{{player.KillsB}}</td>
+				<td>{{player.Humanity}}</td>
+				<td>{{player.DistanceFoot}}</td>
 			</tr>
 		</tbody>	
 	</table>
