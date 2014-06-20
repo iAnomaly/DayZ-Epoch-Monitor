@@ -1,0 +1,26 @@
+<div class="row" style="margin-left: 50px; margin-right: 50px;" ng-controller="ShowPlayerCtrl">
+	<div class="col-md-8">
+		<h2>{{player.PlayerName}}</h2>
+			<div class="panel panel-default">
+	  			<div class="panel-heading">Inventory</div>
+	  			<div class="panel-body">
+	  			<div class="col-md-4">
+		  			<ul style="cursor: pointer;" class="nav nav-pills nav-stacked">
+	  					<li><a href ng-class="active == 'player' ? 'active' : ''" ng-click="active = 'player'">On Player</a></li>
+	  					<li><a href ng-click="active = 'toolbelt'">On Toolbelt</a></li>
+	  					<li><a href ng-click="active = 'backpack'">Backpack</a></li>
+					</ul>
+				</div>
+					<div class="col-md-6" ng-show="active == 'player'">
+	  					<p ng-repeat="item in on_player track by $index">{{item}}</p>
+	  				</div>
+	  				<div class="col-md-6" ng-show="active == 'toolbelt'">
+	  					<p ng-repeat="item in on_toolbelt track by $index">{{item}}</p>
+	  				</div>
+	  				<div class="col-md-6" ng-show="active == 'backpack'">
+	  					<p ng-repeat="item in backpack track by $index">{{item}}</p>
+	  				</div>
+	 			</div>
+			</div>
+	</div>
+</div>
