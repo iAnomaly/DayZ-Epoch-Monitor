@@ -1,14 +1,30 @@
 <table ng-controller="PlayersCtrl" class="table">
 	<thead>
 		<tr>
-			<th>Player Name</th>
-			<th>Location</th>
+			<th><a href="" ng-click="predicate = 'PlayerName'; reverse=!reverse">Player Name</a></th>
+			<th><a href="" ng-click="predicate = 'LastAte'; reverse=!reverse">Last Ate</a></th>
+			<th><a href="" ng-click="predicate = 'LastDrank'; reverse=!reverse">Last Drank</a></th>
+			<th><a href="" ng-click="predicate = 'KillsZ'; reverse=!reverse">Zombie Kills</a></th>
+			<th><a href="" ng-click="predicate = 'HeadshotsZ'; reverse=!reverse">Zombie Headshots</a></th>
+			<th><a href="" ng-click="predicate = 'KillsH'; reverse=!reverse">Human Kills</a></th>
+			<th><a href="" ng-click="predicate = 'KillsB'; reverse=!reverse">Bandit Kills</a></th>
+			<th><a href="" ng-click="predicate = 'Humanity'; reverse=!reverse">Humanity</a></th>
+			<th><a href="" ng-click="predicate = 'DistanceFoot'; reverse=!reverse">Distance on Foot</a></th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="player in players">
+		<tr ng-repeat="player in players | orderBy:predicate:reverse">
 			<td><a ng-click="showPlayer(player)" style="cursor: pointer;">{{player.PlayerName}}</a></td>
-			<td>{{player.Worldspace}}</td>
+			<td>{{player.LastAte}}</td>
+			<td>{{player.LastDrank}}</td>
+			<td>{{player.KillsZ}}</td>
+			<td>{{player.HeadshotsZ}}</td>
+			<td>{{player.KillsH}}</td>
+			<td>{{player.KillsB}}</td>
+			<td ng-if="player.Humanity < -5000" style="color: #ff0000;">{{player.Humanity}}</td>
+			<td ng-if="player.Humanity > -5000 && player.Humanity < 5000" style="color: #00ff00;">{{player.Humanity}}</td>
+			<td ng-if="player.Humanity > 5000" style="color: #0000ff;">{{player.Humanity}}</td>
+			<td>{{player.DistanceFoot}}</td>
 		</tr>
 	</tbody>
 </table>

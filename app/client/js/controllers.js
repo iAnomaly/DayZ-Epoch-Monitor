@@ -11,6 +11,7 @@ App.controller('ActiveCtrl', function ($scope, $location){
 App.controller('PlayersCtrl', function ($scope, Players, $location){
 	Players.allPlayers(function (data){
 		$scope.players = data;
+		$scope.predicate = '-KillsZ';
 	})
 
 	$scope.showPlayer = function (player){

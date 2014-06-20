@@ -7,7 +7,7 @@ CustomMapType.prototype.maxZoom = 7;
 
 CustomMapType.prototype.getTile = function(coord, zoom, ownerDocument) {
     var div = ownerDocument.createElement('DIV');
-    var baseURL = 'http://localhost:3000/tiles/chernarus_tiles_lowres/' ;
+    var baseURL = 'http://skesich.no-ip.org:3000/tiles/chernarus_tiles_lowres/' ;
     baseURL += zoom + '_' + coord.x + '_' + coord.y + '.png';
     div.style.width = this.tileSize.width + 'px';
     div.style.height = this.tileSize.height + 'px';
