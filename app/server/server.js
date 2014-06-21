@@ -44,8 +44,7 @@ app.get('/api/players/:name', function (req, res){
 io.sockets.on('connection', function (socket) {
   socket.emit('connected', { connected: true });
 
-  epoch.on('playersChange', function () {
-  	console.log('playersChange fired!');
-  	socket.emit('playersChange');
+  epoch.on('playersChange', function (data) {
+  	socket.emit('playersChange', data);
   });
 });

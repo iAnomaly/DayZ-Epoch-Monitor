@@ -5,19 +5,24 @@ App.controller('ActiveCtrl', function ($scope, $location){
 	$scope.isActive = function (route){
 		return $location.absUrl().indexOf(route) !== -1
 	}
-})
+});
 
 //Populates the players table with data from the Players factory (/factories.js)
-App.controller('PlayersCtrl', function ($scope, Players, $location){
+App.controller('PlayersCtrl', function ($scope, Players, $location, socket){
 	Players.allPlayers(function (data){
 		$scope.players = data;
 		$scope.predicate = '-KillsZ';
 	})
 
 	$scope.showPlayer = function (player){
-		$location.path('/players/' + player.PlayerName)
+		$location.path('/players/' + player.PlayerName);
 	}
-})
+	//Listens on the 'device' socket.io channel
+	socket.on('playersChange', function (data){
+    	$scope.players = data;
+	});
+
+});
 
 App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 	var player = $location.path().split("/")[2]
