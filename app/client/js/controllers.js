@@ -7,7 +7,7 @@ App.controller('ActiveCtrl', function ($scope, $location){
 	}
 });
 
-//Populates the players table with data from the Players factory (/factories.js)
+//Populates the /players.html page with data from the Players factory (/factories.js).
 App.controller('PlayersCtrl', function ($scope, Players, $location, socket){
 	Players.allPlayers(function (data){
 		$scope.players = data;
@@ -17,13 +17,14 @@ App.controller('PlayersCtrl', function ($scope, Players, $location, socket){
 	$scope.showPlayer = function (player){
 		$location.path('/players/' + player.PlayerName);
 	}
-	//Listens on the 'device' socket.io channel
+	//Listens on the 'playersChange' socket.io channel and updates the scope on changes
 	socket.on('playersChange', function (data){
     	$scope.players = data;
 	});
 
 });
 
+//Controls the /player.html page (single player only)
 App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 	var player = $location.path().split("/")[2]
 
