@@ -48,7 +48,7 @@ epoch.on('playersChange', function () {
 io.sockets.on('connection', function (socket) {
   socket.emit('connected', { connected: true });
 
-  epoch.on('playersChange', function () {
-  	socket.emit('playersChange');
+  epoch.on('playersChange', function (data) {
+  	socket.emit('playersChange', data);
   });
 });
