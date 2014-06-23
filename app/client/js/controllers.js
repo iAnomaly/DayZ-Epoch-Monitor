@@ -19,7 +19,10 @@ App.controller('PlayersCtrl', function ($scope, Players, $location, socket){
 	}
 	//Listens on the 'playersChange' socket.io channel and updates the scope on changes
 	socket.on('playersChange', function (data){
-    	$scope.players = data;
+    	$scope.$apply(function () {
+    		$scope.players = data;
+    	});
+    	console.log(data[48].PlayerName, data[48].Worldspace);
 	});
 
 });
