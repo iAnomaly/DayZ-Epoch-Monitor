@@ -31,21 +31,24 @@ app.get('/api/players', function (req, res){
 	epoch.getAllPlayers(function (data){
 		res.send(data);
 	})
-})
+});
 
 app.get('/api/players/:name', function (req, res){
 	var player_name = req.param('name')
 	epoch.getPlayerByName(player_name, function (data){
 		res.send(data)
 	})
-})
+});
+
+epoch.on('playersChange', function () {
+    console.log('playersChange fired!');
+  });
 
 // Socket
 io.sockets.on('connection', function (socket) {
   socket.emit('connected', { connected: true });
 
   epoch.on('playersChange', function () {
-  	console.log('playersChange fired!');
   	socket.emit('playersChange');
   });
 });
