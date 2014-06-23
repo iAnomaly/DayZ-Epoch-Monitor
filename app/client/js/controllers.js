@@ -17,12 +17,9 @@ App.controller('PlayersCtrl', function ($scope, Players, $location, socket){
 	$scope.showPlayer = function (player){
 		$location.path('/players/' + player.PlayerName);
 	}
-	//Listens on the 'playersChange' socket.io channel and updates the scope on changes
-	socket.on('playersChange', function (data){
-    	$scope.$apply(function () {
-    		$scope.players = data;
-    	});
-    	console.log(data[48].PlayerName, data[48].Worldspace);
+	//Listens on the 'players:changed' socket.io channel and updates the scope on changes
+	socket.on('players:changed', function (data){
+    	$scope.players = data;
 	});
 
 });

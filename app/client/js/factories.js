@@ -31,7 +31,7 @@ App.factory('Items', function (){
 
 //Socket.io factory for handling streaming in the client
 App.factory('socket', function ($rootScope) {
-    return io('http://localhost:1337');
+    var socket = io('http://localhost:1337');
     return {
         on: function (eventName, callback) {
             socket.on(eventName, function () {

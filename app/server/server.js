@@ -40,15 +40,15 @@ app.get('/api/players/:name', function (req, res){
 	})
 });
 
-epoch.on('playersChange', function () {
-    console.log('playersChange fired!');
+epoch.on('players:changed', function () {
+    console.log('players:changed fired!');
   });
 
 // Socket
 io.sockets.on('connection', function (socket) {
   socket.emit('connected', { connected: true });
 
-  epoch.on('playersChange', function (data) {
-  	socket.emit('playersChange', data);
+  epoch.on('players:changed', function (data) {
+  	socket.emit('players:changed', data);
   });
 });
