@@ -1,5 +1,8 @@
 //Dummy data for testing
 
+exports.random_ary1 = { name: 'derp', age: 54, status: 'alive'};
+exports.random_ary2 = { name: 'derp', age: 54, status: 'dead'};
+
 exports.first_poll = [{ PlayerUID: '240166790',
     PlayerName: 'Friache',
     PlayerMorality: 0,

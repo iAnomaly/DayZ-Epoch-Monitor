@@ -16,5 +16,13 @@ describe('DiffEngine', function (){
 			assert(diff[0].updated === fixtures.second_poll[0].KillsZ);
 			done();
 		});
-	});
+	}),
+	it('returns the diff of a random array', function (done){
+		diff.diffObjects(fixtures.random_ary1, fixtures.random_ary2, function (diff){
+			assert(diff.column === 'status');
+			assert(diff.previous === 'alive');
+			assert(diff.updated === 'dead');
+			done();
+		})
+	})
 });
