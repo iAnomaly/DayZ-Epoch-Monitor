@@ -1,5 +1,5 @@
 //Unit tests for individual database functions.
-
+var mysql = require('mysql');
 var assert = require('assert');
 var client_obj = require('../lib/db');
 
@@ -11,7 +11,7 @@ db.createConnection(dbconfig);
 db.connect();
 
 describe('db.findAllPlayers', function (){
-	it('returns and array object of players', function (done){
+	it('returns an object of players', function (done){
 		db.getAllPlayers(function (data){
 			assert(typeof(data) === 'object');
 			done();
@@ -41,3 +41,32 @@ describe('db.findPlayerByName', function (){
 	})
 });
 
+describe('db._pollPlayers', function (){
+	it('emits an event when data changes', function (done){
+		var number = Math.floor(Math.random() * (1 + 100 + 1)) + 1;
+
+		setTimeout(function () {
+			db._pollPlayers();	
+		});
+		setTimeout(function (){
+			rawSQL("UPDATE Character_DATA SET KillsZ = " + number);	
+		});
+		setTimeout(function() {
+			db._pollPlayers();
+		})
+		db.on('playersChange', function (data){
+			assert(typeof data === 'object')
+			assert(data.length > 0)
+			assert(data[0].KillsZ === number)
+			done();
+		})
+
+	});
+});
+
+function rawSQL (query) {
+	db._connection.query(query, function (err, rows, fields){
+		if (err) throw err;
+		console.log("Query Executed: " + query)
+	});	
+}
