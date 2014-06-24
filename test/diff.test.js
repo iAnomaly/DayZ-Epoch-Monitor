@@ -12,6 +12,7 @@ describe('DiffEngine', function (){
 		diff.consume(fixtures.first_poll);
 		diff.consume(fixtures.second_poll, function (diff){
 			assert(typeof diff === 'object')
+			assert(diff.length > 0);
 			done();
 		});
 	});
