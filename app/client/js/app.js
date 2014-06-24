@@ -29,3 +29,10 @@ App.config(function ($routeProvider, $locationProvider, $httpProvider) {
         
     //$locationProvider.html5Mode(true);
 });
+
+App.directive('google-map', function() {
+  return {
+      restrict: 'AE',
+      template: '<div id="map-canvas"></div>'
+  };
+});
