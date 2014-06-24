@@ -11,8 +11,9 @@ describe('DiffEngine', function (){
 	it('returns the diff of two DBClient results', function (done){
 		diff.consume(fixtures.first_poll);
 		diff.consume(fixtures.second_poll, function (diff){
-			assert(typeof diff === 'object')
-			assert(diff.length > 0);
+			assert(diff[0].column === 'KillsZ');
+			assert(diff[0].previous === fixtures.first_poll[0].KillsZ);
+			assert(diff[0].updated === fixtures.second_poll[0].KillsZ);
 			done();
 		});
 	});
