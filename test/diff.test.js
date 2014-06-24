@@ -10,7 +10,9 @@ var diff = new diffEngine();
 describe('DiffEngine', function (){
 	it('returns the diff of two DBClient results', function (done){
 		diff.consume(fixtures.first_poll);
-		diff.consume(fixtures.second_poll);
-		done();
+		diff.consume(fixtures.second_poll, function (diff){
+			assert(typeof diff === 'object')
+			done();
+		});
 	});
 });
