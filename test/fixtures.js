@@ -1,7 +1,10 @@
 //Dummy data for testing
 
-exports.random_ary1 = { name: 'derp', age: 54, status: 'alive'};
-exports.random_ary2 = { name: 'derp', age: 54, status: 'dead'};
+exports.random_obj1 = { PlayerName: 'Stu', age: 54, status: 'alive'};
+exports.random_obj2 = { PlayerName: 'Stu', age: 54, status: 'dead'};
+
+exports.random_ary1 = [{ PlayerName: 'Stu', age: 54, status: 'alive'},{ PlayerName: 'Bill', age: 54, status: 'alive'}]
+exports.random_ary2 = [{ PlayerName: 'Stu', age: 54, status: 'dead'},{ PlayerName: 'Bill', age: 55, status: 'alive'}]
 
 exports.first_poll = [{ PlayerUID: '240166790',
     PlayerName: 'Friache',
