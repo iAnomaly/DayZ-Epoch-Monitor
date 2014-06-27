@@ -54,7 +54,7 @@ describe('db._pollPlayers', function (){
 		setTimeout(function() {
 			db._pollPlayers();
 		})
-		db.on('playersChange', function (data){
+		db.on('players:changed', function (data){
 			assert(typeof data === 'object')
 			assert(data.length > 0)
 			assert(data[0].KillsZ === number)
