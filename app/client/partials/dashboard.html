@@ -1,3 +1,19 @@
 <div ng-controller="DashboardCtrl">
-	<h2>Dashboard</h2>
+	<h2>Players Online</h2>
+	<table class="table">
+	<thead>
+		<tr>
+			<th><a href="" ng-click="predicate = 'PlayerName'; reverse = !reverse">Player Name</a></th>
+			<th><a href="" ng-click="predicate = 'Humanity'; reverse = !reverse">Humanity</a></th>
+			<th><a href="" ng-click="predicate = 'DistanceFoot'; reverse = !reverse">Distance on Foot</a></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="player in players | filter: {Action: 2} | orderBy:predicate:reverse">
+			<td><a ng-click="showPlayer(player)" style="cursor: pointer;">{{player.PlayerName}}</a></td>
+			<td>{{player.Humanity}}</td>
+			<td>{{player.DistanceFoot}}</td>
+		</tr>
+	</tbody>
+</table>
 </div>

@@ -46,11 +46,14 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 });
 
 
-App.controller('DashboardCtrl', function ($scope, Players) {
+App.controller('DashboardCtrl', function ($scope, Players, socket) {
 
 	Players.allPlayers(function (data){
 		$scope.players = data;
 	})
+	socket.on('players:changed', function (data){
+    	$scope.players = data;
+	});
 	
 });
 

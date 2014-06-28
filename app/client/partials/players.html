@@ -2,9 +2,6 @@
 	<thead>
 		<tr>
 			<th><a href="" ng-click="predicate = 'PlayerName'; reverse = !reverse">Player Name</a></th>
-			<th><a href="" ng-click="predicate = 'Worldspace'; reverse = !reverse">Worldspace</a></th>
-			<th><a href="" ng-click="predicate = 'LastAte'; reverse = !reverse">Last Ate</a></th>
-			<th><a href="" ng-click="predicate = 'LastDrank'; reverse = !reverse">Last Drank</a></th>
 			<th><a href="" ng-click="predicate = 'KillsZ'; reverse = !reverse">Zombie Kills</a></th>
 			<th><a href="" ng-click="predicate = 'HeadshotsZ'; reverse = !reverse">Zombie Headshots</a></th>
 			<th><a href="" ng-click="predicate = 'KillsH'; reverse = !reverse">Human Kills</a></th>
@@ -16,9 +13,6 @@
 	<tbody>
 		<tr ng-repeat="player in players | orderBy:predicate:reverse">
 			<td><a ng-click="showPlayer(player)" style="cursor: pointer;">{{player.PlayerName}}</a></td>
-			<td>{{player.Worldspace}}</td>
-			<td>{{player.LastAte}}</td>
-			<td>{{player.LastDrank}}</td>
 			<td>{{player.KillsZ}}</td>
 			<td>{{player.HeadshotsZ}}</td>
 			<td>{{player.KillsH}}</td>
