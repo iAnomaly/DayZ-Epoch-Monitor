@@ -7,6 +7,14 @@ App.controller('ActiveCtrl', function ($scope, $location){
 	}
 });
 
+App.controller('DashboardCtrl', function ($scope, Players) {
+
+	Players.allPlayers(function (data){
+		$scope.players = data;
+	})
+	
+});
+
 //Populates the /players.html page with data from the Players factory (/factories.js).
 App.controller('PlayersCtrl', function ($scope, Players, $location, socket){
 	Players.allPlayers(function (data){
@@ -45,7 +53,6 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 
 });
 
-
 App.controller('DashboardCtrl', function ($scope, Players, socket, $location) {
 
 	Players.allPlayers(function (data){
@@ -61,6 +68,6 @@ App.controller('DashboardCtrl', function ($scope, Players, socket, $location) {
 	
 });
 
-App.controller('MapCtrl', function($scope) {
+App.controller('MapCtrl', function ($scope, GoogleMap) {
 
 });
