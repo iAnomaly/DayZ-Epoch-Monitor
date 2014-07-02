@@ -30,6 +30,8 @@ App.factory('Items', function (){
 });
 
 App.factory('GoogleMap', function (){
+	var projection = new MercatorProjection();
+
 	var chernarusTypeOptions = {
 	  getTileUrl: function(coord, zoom) {
 	      var normalizedCoord = getNormalizedCoord(coord, zoom);
@@ -38,15 +40,15 @@ App.factory('GoogleMap', function (){
 	      }
 	      var bound = Math.pow(2, zoom);
 	      console.log("["+zoom+","+normalizedCoord.x+","+normalizedCoord.y+"]");
-	      //return "http://skesich.no-ip.org:3000/chernarus/z"
-	      return "http://173.55.0.167:3000/chernarus/z"
-	      + zoom + "x" + normalizedCoord.x + "y" + normalizedCoord.y + ".png";
+	      //return "http://skesich.no-ip.org:3000/chernarus/v1/"
+	      return "http://173.55.0.167:3000/chernarus/v1/" 
+	      + "z" + zoom + "x" + normalizedCoord.x + "y" + normalizedCoord.y + ".png";
 	          "/" + zoom + "/" + normalizedCoord.x + "/" +
 	          (bound - normalizedCoord.y - 1) + ".jpg";
 	  },
 	  tileSize: new google.maps.Size(256, 256),
 	  maxZoom: 5,
-	  minZoom: 1,
+	  minZoom: 2,
 	  radius: 1738000,
 	  name: "Chernarus"
 	};
@@ -54,14 +56,27 @@ App.factory('GoogleMap', function (){
 	var chernarusMapType = new google.maps.ImageMapType(chernarusTypeOptions);
 
 	var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 5,
+          center: new google.maps.LatLng(0, 0),
+          zoom: 3,
+          mapTypeControl: false,
           streetViewControl: false
         };
     var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
     map.mapTypes.set('CHERNARUS', chernarusMapType);
   	map.setMapTypeId('CHERNARUS');
+	
+	var origin = new google.maps.Marker({
+	    position: projection.fromPointToLatLng(new google.maps.Point(0, 0)),
+	    map: map,
+	    title:"Hello World!"
+	});
+  	
+  	var end = new google.maps.Marker({
+	    position: projection.fromPointToLatLng(new google.maps.Point(255.99, 213.25)),
+	    map: map,
+	    title:"Hello World!"
+	});
 
   	// Normalizes the coords that tiles repeat across the x axis (horizontally)
 	// like the standard Google map tiles.
@@ -89,7 +104,7 @@ App.factory('GoogleMap', function (){
 	  };
 	}
 
-	return {}
+	return map;
 });
 
 //Socket.io factory for handling streaming in the client

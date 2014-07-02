@@ -31,8 +31,8 @@ App.config(function ($routeProvider, $locationProvider, $httpProvider) {
 });
 
 App.directive('google-map', function() {
-  return {
-      restrict: 'AE',
-      template: '<div id="map-canvas"></div>'
-  };
+    return {
+        restrict: 'AE',
+        template: '<div id="map-canvas"></div>'
+    };
 });
