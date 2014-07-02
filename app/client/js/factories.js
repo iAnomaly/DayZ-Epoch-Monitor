@@ -37,28 +37,31 @@ App.factory('GoogleMap', function (){
 	        return null;
 	      }
 	      var bound = Math.pow(2, zoom);
-	      return "http://mw1.google.com/mw-planetary/lunar/lunarmaps_v1/clem_bw" +
+	      console.log("["+zoom+","+normalizedCoord.x+","+normalizedCoord.y+"]");
+	      //return "http://skesich.no-ip.org:3000/chernarus/z"
+	      return "http://173.55.0.167:3000/chernarus/z"
+	      + zoom + "x" + normalizedCoord.x + "y" + normalizedCoord.y + ".png";
 	          "/" + zoom + "/" + normalizedCoord.x + "/" +
 	          (bound - normalizedCoord.y - 1) + ".jpg";
 	  },
 	  tileSize: new google.maps.Size(256, 256),
-	  maxZoom: 9,
-	  minZoom: 0,
+	  maxZoom: 5,
+	  minZoom: 1,
 	  radius: 1738000,
-	  name: "Moon"
+	  name: "Chernarus"
 	};
 
 	var chernarusMapType = new google.maps.ImageMapType(chernarusTypeOptions);
 
 	var mapOptions = {
           center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8,
+          zoom: 5,
           streetViewControl: false
         };
     var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
-    map.mapTypes.set('chernarus', chernarusMapType);
-  	map.setMapTypeId('chernarus');
+    map.mapTypes.set('CHERNARUS', chernarusMapType);
+  	map.setMapTypeId('CHERNARUS');
 
   	// Normalizes the coords that tiles repeat across the x axis (horizontally)
 	// like the standard Google map tiles.
@@ -75,9 +78,9 @@ App.factory('GoogleMap', function (){
 	    return null;
 	  }
 
-	  // repeat across x-axis
+	  // don't repeat across x-axis (horizontally)
 	  if (x < 0 || x >= tileRange) {
-	    x = (x % tileRange + tileRange) % tileRange;
+	  	return null;
 	  }
 
 	  return {
@@ -85,7 +88,7 @@ App.factory('GoogleMap', function (){
 	    y: y
 	  };
 	}
-	
+
 	return {}
 });
 
