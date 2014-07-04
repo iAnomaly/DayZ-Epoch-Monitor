@@ -6,6 +6,9 @@ exports.random_obj2 = { PlayerName: 'Stu', age: 54, status: 'dead'};
 exports.random_ary1 = [{ PlayerName: 'Stu', age: 54, status: 'alive'},{ PlayerName: 'Bill', age: 54, status: 'alive'}]
 exports.random_ary2 = [{ PlayerName: 'Stu', age: 54, status: 'dead'},{ PlayerName: 'Bill', age: 55, status: 'alive'}]
 
+exports.inventory1 = "[[\"ItemFlashlight\",\"ItemMap\",\"ItemGPS\",\"MeleeCrowbar\"],[\"ItemBandage\",\"ItemPainkiller\",\"ItemSodaPepsi\",\"crowbar_swing\"]]"
+exports.inventory2 = "[[\"ItemFlashlight\",\"ItemMap\",\"ItemGPS\",\"MeleeCrowbar\"],[\"ItemBandage\",\"ItemPainkiller\",\"ItemSodaPepsi\",\"ItemSodaCoke\",\"FoodbeefCooked\",\"crowbar_swing\"]]"
+
 exports.first_poll = [{ PlayerUID: '240166790',
     PlayerName: 'Friache',
     PlayerMorality: 0,
