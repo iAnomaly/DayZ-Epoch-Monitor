@@ -1,6 +1,8 @@
 var assert = require('assert');
 var fixtures = require('./fixtures');
-var localdb = require('../lib/localdb');
+var LocalDB = require('../lib/localdb');
+
+var localdb = new LocalDB();
 
 describe('localdb', function (){
 	it('should create an sqlite database on initialize', function (done){
