@@ -2,12 +2,16 @@ var express = require('express'),
     app = express(),
     http = require('http').createServer(app),
     io = require('socket.io')(http),
-    epochdb = require('../../lib/db');
+    epochdb = require('../../lib/db'),
+    localdb = require('../../lib/localdb');
 
 var dbconfig = require('./database.config').db;
 
 //Export for integration testing
 exports.app = app;
+
+//Initializes SQLite database. Creates a file and tables if none exists.
+localdb.init();
 
 // Express
 app.use(express.static(__dirname + '/../client/'));
