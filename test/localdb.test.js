@@ -15,7 +15,7 @@ describe('localdb', function (){
 	}),
 	it('should return an array of inventory states for a player', function (done){
 		localdb.inventoryHistory('Friache', function (data){
-			console.log(data);
+			//console.log(data);
 		});
 		done();
 	});

@@ -11,10 +11,10 @@ describe('DiffEngine', function (){
 	it('returns the diff of two DBClient results', function (done){
 		diff.diffPoll(fixtures.first_poll);
 		diff.diffPoll(fixtures.second_poll, function (diff){
-			assert(diff[0].player === 'Friache');
-			assert(diff[0].column === 'KillsZ');
-			assert(diff[0].previous === fixtures.first_poll[0].KillsZ);
-			assert(diff[0].updated === fixtures.second_poll[0].KillsZ);
+			assert(diff[2].player === 'Friache');
+			assert(diff[2].column === 'KillsZ');
+			assert(diff[2].previous === fixtures.first_poll[0].KillsZ);
+			assert(diff[2].updated === fixtures.second_poll[0].KillsZ);
 			done();
 		});
 	}),
@@ -36,5 +36,12 @@ describe('DiffEngine', function (){
 			assert(diff.updated === 'dead');
 			done();
 		});
+	}),
+	it('returns diffs in inventory or backpack', function (done){
+		//diff.diffInventory(fixtures.first_poll);
+		// diff.diffInventory(fixtures.second_poll, function (data){
+		// 	// assert(data[0].column === 'Inventory');
+		done();
+		// });
 	});
 });

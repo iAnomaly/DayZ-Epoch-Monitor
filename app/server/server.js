@@ -50,15 +50,10 @@ app.get('/api/players/:name', function (req, res){
 });
 
 epoch.on('players:changed', function (data) {
-    diff.diffPoll(data, function (diff_ary){
-      //console.log(diff_ary)
-      for (var i = 0; i < diff_ary.length; i++){
-        var obj = diff_ary[i];
-        if (obj.column === 'Inventory'){
-          localdb.logInventory(obj);
-          //console.log(obj.column)
-        }
-      };
+    diff.diffInventory(data, function (ary){
+      ary.forEach(function (obj){
+        localdb.logInventory(obj);
+      });
     });
   console.log('players:changed fired!');
 });
