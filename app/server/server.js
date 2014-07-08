@@ -49,6 +49,13 @@ app.get('/api/players/:name', function (req, res){
 	})
 });
 
+app.get('/api/players/:name/inventory', function (req, res){
+  var player_name = req.param('name')
+  localdb.inventoryHistory(player_name, function (data){
+    res.send(data)
+  })
+});
+
 epoch.on('players:changed', function (data) {
     diff.diffInventory(data, function (ary){
       ary.forEach(function (obj){
