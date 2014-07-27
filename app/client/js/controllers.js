@@ -7,19 +7,12 @@ App.controller('ActiveCtrl', function ($scope, $location){
 	}
 });
 
-App.controller('DashboardCtrl', function ($scope, Players) {
-
-	Players.allPlayers(function (data){
-		$scope.players = data;
-	})
-	
-});
-
 //Populates the /players.html page with data from the Players factory (/factories.js).
 App.controller('PlayersCtrl', function ($scope, Players, $location, socket){
 	Players.allPlayers(function (data){
 		$scope.players = data;
 		$scope.predicate = '-KillsZ';
+		console.log("PlayerCtrl data: " + data)
 	})
 
 	$scope.showPlayer = function (player){
@@ -44,6 +37,7 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 
 	Players.playerByName(player, function (player){
 		$scope.player = player;
+
 		Items.buildInventory(player, function (inventory){
 			$scope.on_player = inventory.player;
 			$scope.on_toolbelt = inventory.toolbelt;
@@ -57,6 +51,7 @@ App.controller('DashboardCtrl', function ($scope, Players, socket, $location) {
 
 	Players.allPlayers(function (data){
 		$scope.players = data;
+		console.log("DashboardCtrl data: " + data)
 	})
 
 	$scope.showPlayer = function (player){
