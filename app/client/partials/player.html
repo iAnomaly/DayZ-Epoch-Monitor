@@ -42,4 +42,19 @@
 	      </tbody>
 	    </table>
 	</div>
+
+	<table class="table">
+		<thead>
+			<th>Datestamp</th>
+			<th>Container</th>
+			<th>Inventory</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="state in inventoryHistory">
+				<td>{{state.Datestamp}}</td>
+				<td>{{state.Container}}</td>
+				<td>{{state.Inventory}}</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

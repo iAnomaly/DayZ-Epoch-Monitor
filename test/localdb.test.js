@@ -19,8 +19,10 @@ describe('localdb', function (){
 	}),
 	it('should return an array of inventory states for a player', function (done){
 		localdb.inventoryHistory('Friache', function (data){
-			//console.log(data);
+			assert(data[0].PlayerName !== undefined)
+			assert(data[0].PlayerName === 'Friache')
+			assert(data[0].Inventory === fixtures.inventory2);
+			done();
 		});
-		done();
 	});
 });

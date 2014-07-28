@@ -19,5 +19,14 @@ describe('Api Routes', function (){
 				.expect('Content-type', /json/)
 				.expect(200, done);
 		});
+	}),
+	describe('/api/players/:name/inventory', function (){
+		it('responds with json', function (done){
+			request(server.app)
+				.get('/api/players/Friache/inventory')
+				.set('Accept', 'application/json')
+				.expect('Content-type', /json/)
+				.expect(200, done);
+		});
 	});
 });

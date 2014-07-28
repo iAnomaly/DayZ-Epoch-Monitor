@@ -51,6 +51,11 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 		})
 	})
 
+	Players.playerHistory(player, function (history){
+		console.log(history)
+		$scope.inventoryHistory = history;
+	})
+
 });
 
 App.controller('DashboardCtrl', function ($scope, Players, socket, $location) {

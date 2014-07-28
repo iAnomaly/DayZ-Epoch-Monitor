@@ -9,6 +9,9 @@ App.factory('Players', function ($http){
 		},
 		playerByName: function (player, callback) {
 			$http.get('/api/players/' + player).success(callback);
+		},
+		playerHistory: function (player, callback){
+			$http.get('/api/players/' + player + "/inventory").success(callback);
 		}
 	}
 });
