@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app/server/server.js 80",
-    "test": "NODE_ENV=test mocha -R nyan"
+    "test": "NODE_ENV=test istanbul cover _mocha -- -R spec"
   },
   "dependencies": {
     "express": "3.4.7",
