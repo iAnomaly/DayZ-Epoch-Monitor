@@ -64,6 +64,17 @@ describe('db._pollPlayers', function (){
 	});
 });
 
+describe('db.setInventory', function (){
+	it('sets a players inventory', function (done){
+		//
+		done();
+	}),
+	it('should NOT restore a database if a player is logged in', function (done){
+		//
+		done();
+	});
+});
+
 function rawSQL (query) {
 	db._connection.query(query, function (err, rows, fields){
 		if (err) throw err;

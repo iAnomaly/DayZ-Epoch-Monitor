@@ -17,11 +17,26 @@ describe('localdb', function (){
 		localdb.logInventory({player: 'Friache', column: 'Inventory', previous: fixtures.inventory1, updated: fixtures.inventory2});
 		done();
 	}),
+	it('should log changes to backpack inventory', function (done){
+		//
+		done();
+	}),
 	it('should return an array of inventory states for a player', function (done){
 		localdb.inventoryHistory('Friache', function (data){
 			assert(data[0].PlayerName !== undefined)
 			assert(data[0].PlayerName === 'Friache')
 			assert(data[0].Inventory === fixtures.inventory2);
+			done();
+		});
+	}),
+	it('should only keep 10 records per user', function (done){
+		//
+		done();
+	}),
+	it('should restore a players inventory to a previous state', function (done){
+		localdb.restoreInventory('Friache', 'Wed Aug 13 2014 22:46', function (data){
+			//console.log(data);
+			assert(data.PlayerName === 'Friache');
 			done();
 		});
 	});
