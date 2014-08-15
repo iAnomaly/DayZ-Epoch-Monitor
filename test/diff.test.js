@@ -13,6 +13,7 @@ describe('DiffEngine', function (){
 		diff.diffPoll(fixtures.second_poll, function (diff){
 			assert(diff[2].player === 'Friache');
 			assert(diff[2].column === 'KillsZ');
+			assert(diff[2].character === fixtures.second_poll[0].CharacterID)
 			assert(diff[2].previous === fixtures.first_poll[0].KillsZ);
 			assert(diff[2].updated === fixtures.second_poll[0].KillsZ);
 			done();

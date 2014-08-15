@@ -2,6 +2,7 @@
 var mysql = require('mysql');
 var assert = require('assert');
 var client_obj = require('../lib/db');
+var fixtures = require('./fixtures');
 
 var dbconfig = require('../app/server/database.config').db;
 
@@ -64,10 +65,18 @@ describe('db._pollPlayers', function (){
 	});
 });
 
-describe('db.setInventory', function (){
-	it('sets a players inventory', function (done){
-		//
-		done();
+describe('db.writeInventory', function (){
+	beforeEach(function (done){
+		console.log('b4 test')
+		db.writeInventory(24, fixtures.inventory3, done);
+	});
+	it('changes a players inventory', function (done){
+		db.getPlayerByName('Friache', function (data){
+			console.log(data);
+			assert(data.CharacterID === 24);
+			assert(data.Inventory === fixtures.inventory3);
+			done();
+		});	
 	}),
 	it('should NOT restore a database if a player is logged in', function (done){
 		//
@@ -75,9 +84,10 @@ describe('db.setInventory', function (){
 	});
 });
 
-function rawSQL (query) {
+function rawSQL (query, callback) {
 	db._connection.query(query, function (err, rows, fields){
 		if (err) throw err;
 		console.log("Query Executed: " + query)
+		if (callback) callback(rows);
 	});	
 }

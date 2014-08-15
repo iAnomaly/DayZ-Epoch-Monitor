@@ -8,6 +8,7 @@ exports.random_ary2 = [{ PlayerName: 'Stu', age: 54, status: 'dead'},{ PlayerNam
 
 exports.inventory1 = '[["ItemFlashlight","ItemMap","ItemGPS","MeleeCrowbar"],["ItemBandage","ItemPainkiller","ItemSodaPepsi","crowbar_swing"]]'
 exports.inventory2 = '[["ItemFlashlight","ItemMap","ItemGPS","MeleeCrowbar"],["ItemBandage","ItemPainkiller","ItemSodaPepsi","ItemSodaCoke","FoodbeefCooked","crowbar_swing"]]'
+exports.inventory3 = '[["ThisIsAnItem","ItemMap","ItemGPS","MeleeCrowbar"],["ItemBandage","ItemPainkiller","ItemSodaPepsi","ItemSodaCoke","TestItem","OtherThing"]]'
 
 exports.first_poll = [{ PlayerUID: '240166790',
     PlayerName: 'Friache',
