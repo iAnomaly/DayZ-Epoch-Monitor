@@ -1,8 +1,8 @@
 //Unit tests for DiffEngine
 
 var assert = require('assert');
-var diffEngine = require('../lib/diff');
-var fixtures = require('./fixtures')
+var diffEngine = require('../../lib/diff');
+var fixtures = require('../fixtures')
 
 var diff = new diffEngine();
 

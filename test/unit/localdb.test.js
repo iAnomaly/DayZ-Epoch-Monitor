@@ -1,7 +1,7 @@
 var fs = require('fs');
 var assert = require('assert');
-var fixtures = require('./fixtures');
-var LocalDB = require('../lib/localdb');
+var fixtures = require('../fixtures');
+var LocalDB = require('../../lib/localdb');
 
 var localdb = new LocalDB();
 
@@ -36,10 +36,6 @@ describe('localdb', function (){
 		});
 	}),
 	it('should only keep 10 records per user', function (done){
-		//
-		done();
-	}),
-	it('should restore a players inventory to a previous state', function (done){
 		//
 		done();
 	});

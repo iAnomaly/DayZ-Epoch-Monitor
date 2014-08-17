@@ -1,5 +1,5 @@
 var request = require('supertest')
-var server = require('../app/server/server.js')
+var server = require('../../app/server/server.js')
 
 describe('Api Routes', function (){
 	describe('/api/players', function (){
