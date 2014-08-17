@@ -30,14 +30,14 @@ describe('db.findPlayerByName', function (){
 	it('returns a player named Friache', function (done){
 		db.getPlayerByName('Friache', function (data){
 			assert(data.PlayerName === 'Friache');
-		done();	
+			done();	
 		});
 			
 	}),
 	it('returns an object', function (done){
 		db.getPlayerByName('Friache', function (data){
 			assert(typeof data === 'object')
-		done();
+			done();
 		})
 	})
 });
@@ -67,18 +67,16 @@ describe('db._pollPlayers', function (){
 
 describe('db.writeInventory', function (){
 	beforeEach(function (done){
-		console.log('b4 test')
-		db.writeInventory(24, fixtures.inventory3, done);
+		db.writeInventory(14, fixtures.inventory3, done);
 	});
 	it('changes a players inventory', function (done){
 		db.getPlayerByName('Friache', function (data){
-			console.log(data);
-			assert(data.CharacterID === 24);
+			assert(data.CharacterID === 14);
 			assert(data.Inventory === fixtures.inventory3);
 			done();
 		});	
 	}),
-	it('should NOT restore a database if a player is logged in', function (done){
+	it('should NOT restore if a player is logged in', function (done){
 		//
 		done();
 	});
@@ -87,7 +85,7 @@ describe('db.writeInventory', function (){
 function rawSQL (query, callback) {
 	db._connection.query(query, function (err, rows, fields){
 		if (err) throw err;
-		console.log("Query Executed: " + query)
+		//console.log("Query Executed: " + query)
 		if (callback) callback(rows);
 	});	
 }

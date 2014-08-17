@@ -14,7 +14,7 @@ describe('localdb', function (){
 		});
 	}),
 	it('should log inventory changes to the databse', function (done){
-		localdb.logInventory({player: 'Friache', character: 24, column: 'Inventory', previous: fixtures.inventory1, updated: fixtures.inventory2});
+		localdb.logInventory({player: 'Friache', character: 14, column: 'Inventory', previous: fixtures.inventory1, updated: fixtures.inventory2});
 		done();
 	}),
 	it('should log changes to backpack inventory', function (done){
@@ -31,7 +31,7 @@ describe('localdb', function (){
 	}),
 	it('has CharacterID defined', function (done){
 		localdb.inventoryHistory('Friache', function (data){
-			assert(data[0].CharacterID === 24);
+			assert(data[0].CharacterID === 14);
 			done();
 		});
 	}),
@@ -40,6 +40,7 @@ describe('localdb', function (){
 		done();
 	}),
 	it('should restore a players inventory to a previous state', function (done){
+		//
 		done();
 	});
 });
