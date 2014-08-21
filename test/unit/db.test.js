@@ -67,7 +67,8 @@ describe('db._pollPlayers', function (){
 
 describe('db.writeInventory', function (){
 	beforeEach(function (done){
-		db.writeInventory(14, fixtures.inventory3, done);
+		db.writeInventory(14, fixtures.inventory3);
+		done();
 	});
 	it('changes a players inventory', function (done){
 		db.getPlayerByName('Friache', function (data){

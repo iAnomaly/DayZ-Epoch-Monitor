@@ -21,6 +21,7 @@ localdb.init();
 // Express
 app.use(express.static(__dirname + '/../client/'));
 app.use(express.logger('dev'));
+app.use(express.json());
 
 // Epoch Database
 var epoch = new epochdb();
@@ -54,6 +55,13 @@ app.get('/api/players/:name/inventory', function (req, res){
   localdb.inventoryHistory(player_name, function (data){
     res.send(data)
   })
+});
+
+app.post('/api/players/restore', function (req, res){
+  var data = req.body;
+  console.log(data);
+  localdb.restoreInventory(data.character, data.date);
+  res.send(200);
 });
 
 epoch.on('players:changed', function (data) {

@@ -1,5 +1,5 @@
 <div class="table-responsive" style="margin-left: 50px; margin-right: 50px;" ng-controller="PlayerCtrl">
-	<h2 class="sub-header">{{player.PlayerName}}</h2>
+	<h2 class="sub-header">{{player.PlayerName}} | {{player.CharacterID}}</h2>
 	<div class="col-md-4">
 	    <table class="table table-striped">
 	      <thead>
@@ -54,6 +54,10 @@
 				<td>{{state.Datestamp}}</td>
 				<td>{{state.Container}}</td>
 				<td>{{state.Inventory}}</td>
+				<td>
+					<button type="button" class="btn btn-default" ng-click="restore(player.CharacterID, state.Datestamp)">Restore
+					</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
