@@ -58,7 +58,7 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 
 	$scope.restore = function (characterID, dateStamp){
 		Players.restoreInventory(characterID, dateStamp, function (){
-			console.log('sent restore to server');
+			$scope.message = "Restored!"
 		});
 	};
 });

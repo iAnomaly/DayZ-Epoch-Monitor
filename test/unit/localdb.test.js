@@ -36,7 +36,11 @@ describe('localdb', function (){
 		});
 	}),
 	it('should only keep 10 records per user', function (done){
-		//
+		//localdb.trimRecords('Friache');
+		// localdb.inventoryHistory(function (data){
+		// 	assert(data.length <= 10);
+		// 	done();
+		// });
 		done();
 	});
 });

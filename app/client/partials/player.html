@@ -1,5 +1,5 @@
 <div class="table-responsive" style="margin-left: 50px; margin-right: 50px;" ng-controller="PlayerCtrl">
-	<h2 class="sub-header">{{player.PlayerName}} | {{player.CharacterID}}</h2>
+	<h2 class="sub-header">{{player.PlayerName}}</h2>
 	<div class="col-md-4">
 	    <table class="table table-striped">
 	      <thead>
@@ -48,6 +48,7 @@
 			<th>Datestamp</th>
 			<th>Container</th>
 			<th>Inventory</th>
+			<p style="color: #31d02b">{{message}}</p>
 		</thead>
 		<tbody>
 			<tr ng-repeat="state in inventoryHistory">
