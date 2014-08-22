@@ -26,7 +26,7 @@ describe('db.findAllPlayers', function (){
 	})
 })
 
-describe('db.findPlayerByName', function (){
+describe('db.getPlayerByName', function (){
 	it('returns a player named Friache', function (done){
 		db.getPlayerByName('Friache', function (data){
 			assert(data.PlayerName === 'Friache');

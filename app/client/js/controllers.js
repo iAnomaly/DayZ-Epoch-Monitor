@@ -43,6 +43,7 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 	}
 
 	Players.playerByName(player, function (player){
+		console.log(player)
 		$scope.player = player;
 		Items.buildInventory(player, function (inventory){
 			$scope.on_player = inventory.player;
@@ -57,9 +58,15 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 	})
 
 	$scope.restore = function (characterID, dateStamp){
-		Players.restoreInventory(characterID, dateStamp, function (){
-			$scope.message = "Restored!"
-		});
+		if ($scope.player.Action === 2){
+			$scope.message = "Player logged in. Restore blocked.";
+			$scope.color = '#d00e07';
+		}else{
+			Players.restoreInventory(characterID, dateStamp, function (){
+				$scope.message = "Restored!";
+				$scope.color = '#2bd013';
+			});
+		}
 	};
 });
 
