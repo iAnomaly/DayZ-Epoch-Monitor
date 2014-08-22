@@ -34,13 +34,18 @@ describe('localdb', function (){
 			assert(data[0].CharacterID === 14);
 			done();
 		});
-	}),
-	it('should only keep 10 records per user', function (done){
-		//localdb.trimRecords('Friache');
-		// localdb.inventoryHistory(function (data){
-		// 	assert(data.length <= 10);
-		// 	done();
-		// });
-		done();
+	});
+	describe('trimRecords', function (){
+		beforeEach(function (done){
+			done();
+		});	
+		it('should only keep 10 records per user', function (done){
+			localdb.trimRecords('Friache');
+			localdb.inventoryHistory('Friache', function (data){
+				assert(data.length <= 10);
+				done();
+			});
+		});
 	});
 });
+
