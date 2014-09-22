@@ -8,11 +8,9 @@ App.controller('ActiveCtrl', function ($scope, $location){
 });
 
 App.controller('DashboardCtrl', function ($scope, Players) {
-
 	Players.allPlayers(function (data){
 		$scope.players = data;
-	})
-	
+	});
 });
 
 //Populates the /players.html page with data from the Players factory (/factories.js).
@@ -49,8 +47,8 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 			$scope.on_player = inventory.player;
 			$scope.on_toolbelt = inventory.toolbelt;
 			$scope.backpack = inventory.backpack;
-		})
-	})
+		});
+	});
 
 	Players.playerHistory(player, function (history){
 		console.log(history)
@@ -71,7 +69,6 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 });
 
 App.controller('DashboardCtrl', function ($scope, Players, socket, $location) {
-
 	Players.allPlayers(function (data){
 		$scope.players = data;
 	})

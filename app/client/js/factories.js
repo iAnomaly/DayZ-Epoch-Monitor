@@ -32,7 +32,7 @@ App.factory('Items', function (){
 			var on_person = JSON.parse(inventory)[1];
 			var in_backpack = JSON.parse(player.Backpack);
 
-			var obj = { player: on_person, toolbelt: on_toolbelt, backpack: in_backpack }
+			var obj = { player: on_person, toolbelt: on_toolbelt, backpack: in_backpack };
 			callback(obj);
 			
 		}
