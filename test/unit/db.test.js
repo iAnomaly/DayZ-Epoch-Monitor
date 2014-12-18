@@ -1,12 +1,13 @@
 //Unit tests for individual database functions.
 var mysql = require('mysql');
 var assert = require('assert');
-var client_obj = require('../lib/db');
+var dbClient = require('../../lib/db');
+var fixtures = require('../fixtures');
 
-var dbconfig = require('../app/server/database.config').db;
+var dbconfig = require('../../app/server/database.config').db;
 
 // Epoch Database
-var db = new client_obj();
+var db = new dbClient();
 db.createConnection(dbconfig);
 db.connect();
 
@@ -25,18 +26,18 @@ describe('db.findAllPlayers', function (){
 	})
 })
 
-describe('db.findPlayerByName', function (){
+describe('db.getPlayerByName', function (){
 	it('returns a player named Friache', function (done){
 		db.getPlayerByName('Friache', function (data){
 			assert(data.PlayerName === 'Friache');
-		done();	
+			done();	
 		});
 			
 	}),
 	it('returns an object', function (done){
 		db.getPlayerByName('Friache', function (data){
 			assert(typeof data === 'object')
-		done();
+			done();
 		})
 	})
 });
@@ -64,9 +65,28 @@ describe('db._pollPlayers', function (){
 	});
 });
 
-function rawSQL (query) {
+describe('db.writeInventory', function (){
+	beforeEach(function (done){
+		db.writeInventory(14, fixtures.inventory3);
+		done();
+	});
+	it('changes a players inventory', function (done){
+		db.getPlayerByName('Friache', function (data){
+			assert(data.CharacterID === 14);
+			assert(data.Inventory === fixtures.inventory3);
+			done();
+		});	
+	}),
+	it('should NOT restore if a player is logged in', function (done){
+		//
+		done();
+	});
+});
+
+function rawSQL (query, callback) {
 	db._connection.query(query, function (err, rows, fields){
 		if (err) throw err;
-		console.log("Query Executed: " + query)
+		//console.log("Query Executed: " + query)
+		if (callback) callback(rows);
 	});	
 }

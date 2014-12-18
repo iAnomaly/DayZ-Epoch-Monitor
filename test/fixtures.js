@@ -6,11 +6,15 @@ exports.random_obj2 = { PlayerName: 'Stu', age: 54, status: 'dead'};
 exports.random_ary1 = [{ PlayerName: 'Stu', age: 54, status: 'alive'},{ PlayerName: 'Bill', age: 54, status: 'alive'}]
 exports.random_ary2 = [{ PlayerName: 'Stu', age: 54, status: 'dead'},{ PlayerName: 'Bill', age: 55, status: 'alive'}]
 
+exports.inventory1 = '[["ItemFlashlight","ItemMap","ItemGPS","MeleeCrowbar"],["ItemBandage","ItemPainkiller","ItemSodaPepsi","crowbar_swing"]]'
+exports.inventory2 = '[["ItemFlashlight","ItemMap","ItemGPS","MeleeCrowbar"],["ItemBandage","ItemPainkiller","ItemSodaPepsi","ItemSodaCoke","FoodbeefCooked","crowbar_swing"]]'
+exports.inventory3 = '[["ThisIsAnItem","ItemMap","ItemGPS","MeleeCrowbar"],["ItemBandage","ItemPainkiller","ItemSodaPepsi","ItemSodaCoke","TestItem","OtherThing"]]'
+
 exports.first_poll = [{ PlayerUID: '240166790',
     PlayerName: 'Friache',
     PlayerMorality: 0,
     PlayerSex: 0,
-    CharacterID: 24,
+    CharacterID: 14,
     InstanceID: 11,
     Datestamp: 'Wed Jun 11 2014 10:19:50 GMT-0700 (PDT)',
     LastLogin: 'Wed Jun 11 2014 10:20:21 GMT-0700 (PDT)',
@@ -61,12 +65,12 @@ exports.second_poll = [{ PlayerUID: '240166790',
     PlayerName: 'Friache',
     PlayerMorality: 0,
     PlayerSex: 0,
-    CharacterID: 24,
+    CharacterID: 14,
     InstanceID: 11,
     Datestamp: 'Wed Jun 11 2014 10:19:50 GMT-0700 (PDT)',
     LastLogin: 'Wed Jun 11 2014 10:20:21 GMT-0700 (PDT)',
-    Inventory: '[["ItemFlashlight","ItemMap","ItemGPS","MeleeCrowbar"],["ItemPainkiller","ItemSodaPepsi","ItemSodaCoke","FoodbeefCooked","ItemBandage"]]',
-    Backpack: '["DZ_Patrol_Pack_EP1",[[],[]],[[],[]]]',
+    Inventory: '[["ItemFlashlight","ItemMap","ItemGPS","MeleeCrowbar"],["ItemBandage","ItemPainkiller","ItemSodaPepsi","ItemSodaCoke","FoodbeefCooked","crowbar_swing"]]',
+    Backpack: '["DZ_Patrol_Pack_EP1",[["ItemBandage"],[]],[[],[]]]',
     Worldspace: '[84,[9523.63,2028.09,0.00145816]]',
     Medical: '[false,false,false,false,false,false,false,12000,[],[0,0],0,[37.11,13.2984]]',
     Alive: 1,

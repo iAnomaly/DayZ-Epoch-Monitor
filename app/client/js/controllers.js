@@ -36,19 +36,35 @@ App.controller('PlayerCtrl', function ($scope, Players, Items, $location){
 	}
 
 	Players.playerByName(player, function (player){
+		console.log(player)
 		$scope.player = player;
 
 		Items.buildInventory(player, function (inventory){
 			$scope.on_player = inventory.player;
 			$scope.on_toolbelt = inventory.toolbelt;
 			$scope.backpack = inventory.backpack;
-		})
+		});
+	});
+
+	Players.playerHistory(player, function (history){
+		console.log(history)
+		$scope.inventoryHistory = history;
 	})
 
+	$scope.restore = function (characterID, dateStamp){
+		if ($scope.player.Action === 2){
+			$scope.message = "Player logged in. Restore blocked.";
+			$scope.color = '#d00e07';
+		}else{
+			Players.restoreInventory(characterID, dateStamp, function (){
+				$scope.message = "Restored!";
+				$scope.color = '#2bd013';
+			});
+		}
+	};
 });
 
 App.controller('DashboardCtrl', function ($scope, Players, socket, $location) {
-
 	Players.allPlayers(function (data){
 		$scope.players = data;
 		console.log("DashboardCtrl data: " + data)

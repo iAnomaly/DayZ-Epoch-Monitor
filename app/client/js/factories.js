@@ -9,6 +9,16 @@ App.factory('Players', function ($http){
 		},
 		playerByName: function (player, callback) {
 			$http.get('/api/players/' + player).success(callback);
+		},
+		playerHistory: function (player, callback){
+			$http.get('/api/players/' + player + "/inventory").success(callback);
+		},
+		restoreInventory: function (characterID, dateStamp, callback){
+			var data = {
+				character: characterID,
+				date: dateStamp
+			};
+			$http.post('/api/players/restore', data).success(callback);
 		}
 	}
 });
@@ -22,7 +32,7 @@ App.factory('Items', function (){
 			var on_person = JSON.parse(inventory)[1];
 			var in_backpack = JSON.parse(player.Backpack);
 
-			var obj = { player: on_person, toolbelt: on_toolbelt, backpack: in_backpack }
+			var obj = { player: on_person, toolbelt: on_toolbelt, backpack: in_backpack };
 			callback(obj);
 			
 		}
