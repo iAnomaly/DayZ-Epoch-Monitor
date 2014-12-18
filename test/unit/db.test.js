@@ -1,13 +1,13 @@
 //Unit tests for individual database functions.
 var mysql = require('mysql');
 var assert = require('assert');
-var client_obj = require('../../lib/db');
+var dbClient = require('../../lib/db');
 var fixtures = require('../fixtures');
 
 var dbconfig = require('../../app/server/database.config').db;
 
 // Epoch Database
-var db = new client_obj();
+var db = new dbClient();
 db.createConnection(dbconfig);
 db.connect();
 
