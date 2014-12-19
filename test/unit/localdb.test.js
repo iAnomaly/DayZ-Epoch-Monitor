@@ -1,9 +1,7 @@
 var fs = require('fs');
 var assert = require('assert');
 var fixtures = require('../fixtures');
-var LocalDB = require('../../lib/localdb');
-
-var localdb = new LocalDB();
+var localdb = require('../../lib/localdb');
 
 describe('localdb', function (){
 	it('should create an sqlite database on initialize', function (done){
@@ -34,18 +32,12 @@ describe('localdb', function (){
 			assert(data[0].CharacterID === 14);
 			done();
 		});
-	});
-	describe('trimRecords', function (){
-		beforeEach(function (done){
+	}),
+	it('should only keep 10 records per user', function (done){
+		localdb.inventoryHistory('Friache', function (data){
+			assert(data.length <= 10);
 			done();
 		});	
-		it('should only keep 10 records per user', function (done){
-			localdb.trimRecords('Friache');
-			localdb.inventoryHistory('Friache', function (data){
-				assert(data.length <= 10);
-				done();
-			});
-		});
 	});
 });
 

@@ -4,7 +4,7 @@ var express = require('express'),
     io = require('socket.io')(http),
     epochdb = require('../../lib/db'),
     diffEngine = require('../../lib/diff'),
-    SQLite = require('../../lib/localdb');
+    localdb = require('../../lib/localdb');
 
 var dbconfig = require('./database.config').db;
 
@@ -15,7 +15,6 @@ exports.app = app;
 var diff = new diffEngine();
 
 //Initializes SQLite database. Creates a file and tables if none exists.
-var localdb = new SQLite();
 localdb.init();
 
 // Express
