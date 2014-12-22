@@ -83,5 +83,64 @@ App.controller('DashboardCtrl', function ($scope, Players, socket, $location) {
 });
 
 App.controller('MapCtrl', function ($scope, GoogleMap) {
+	var chernarusTypeOptions = {
+	  getTileUrl: function(coord, zoom) {
+	      var normalizedCoord = getNormalizedCoord(coord, zoom);
+	      if (!normalizedCoord) {
+	        return null;
+	      }
+	      var bound = Math.pow(2, zoom);
+	      //console.log("["+zoom+","+normalizedCoord.x+","+normalizedCoord.y+"]");
+	      //return "http://skesich.no-ip.org:3000/chernarus/z"
+	      return "/images/z"
+	      + zoom + "x" + normalizedCoord.x + "y" + normalizedCoord.y + ".png";
+	          "/" + zoom + "/" + normalizedCoord.x + "/" +
+	          (bound - normalizedCoord.y - 1) + ".jpg";
+	  },
+	  tileSize: new google.maps.Size(256, 256),
+	  maxZoom: 5,
+	  minZoom: 1,
+	  radius: 1738000,
+	  name: "Chernarus"
+	};
 
+	var chernarusMapType = new google.maps.ImageMapType(chernarusTypeOptions);
+
+	var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 2,
+          streetViewControl: false
+        };
+    var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+    map.mapTypes.set('CHERNARUS', chernarusMapType);
+  	map.setMapTypeId('CHERNARUS');
+
+  	// Normalizes the coords that tiles repeat across the x axis (horizontally)
+	// like the standard Google map tiles.
+	function getNormalizedCoord(coord, zoom) {
+	  var y = coord.y;
+	  var x = coord.x;
+
+	  // tile range in one direction range is dependent on zoom level
+	  // 0 = 1 tile, 1 = 2 tiles, 2 = 4 tiles, 3 = 8 tiles, etc
+	  var tileRange = 1 << zoom;
+
+	  // don't repeat across y-axis (vertically)
+	  if (y < 0 || y >= tileRange) {
+	    return null;
+	  }
+
+	  // don't repeat across x-axis (horizontally)
+	  if (x < 0 || x >= tileRange) {
+	  	return null;
+	  }
+
+	  return {
+	    x: x,
+	    y: y
+	  };
+	}
+
+	return {}
 });
